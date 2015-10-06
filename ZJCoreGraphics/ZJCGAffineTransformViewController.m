@@ -31,8 +31,53 @@
         [self.view addSubview:view];
     }
     
-    self.frontView.transform = CGAffineTransformMakeRotation(M_PI/6);   // 弧度数
+    NSLog(@"%@", NSStringFromCGAffineTransform(self.frontView.transform));
+    /*
+        CGAffineTransform使用方法:
+     */
+#if 0
+#ifdef Method1
+    //方法1:
+    self.frontView.transform = CGAffineTransformMakeRotation(M_PI/6);   // 弧度数, pi/6 顺时针
+    
+#else
+    //方法2
+    self.frontView.transform = CGAffineTransformRotate(self.frontView.transform, M_PI/6);
+#endif
+#endif
+    // A point that specifies the x- and y-coordinates to transform.
+    // Returns the point resulting from an affine transformation of an existing point.
+    CGPointApplyAffineTransform(CGPointMake(0, 0), self.frontView.transform);   // CGPointApplyAffineTransform //把变化应用到一个点上
+    
+    CGRectApplyAffineTransform(CGRectMake(0, 0, 100, 100), CGAffineTransformMakeRotation(M_PI/3));
+    NSLog(@"%@", NSStringFromCGAffineTransform(self.frontView.transform));
+    
+/*
+    CTM:the current graphics state's transformation matrix
+*/
 }
+/*
+ 仿射矩阵:将原坐标[x, y, 1] 转换为[x', y', 1]
+    即:[x', y', 1] = [x, y, 1] x 仿射矩阵
+    注意:仿射矩阵并不代表点得坐标，只是代表了一个转换关系，是一个转换矩阵而已
+ struct CGAffineTransform {
+    CGFloat a, b, c, d;
+    CGFloat tx, ty;
+ };
+ 
+ __         __
+ |  a  b  0  |
+ |  c  d  0  |
+ |  tx ty 1  |
+ --         --
+ 
+ 一个视图的原始transform = CGAffineTransformIdentity : [1, 0, 0, 1, 0, 0]
+ __      __
+ |  1 0 0 |
+ |  0 1 0 |
+ |  0 0 1 |
+ --      --
+ */
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

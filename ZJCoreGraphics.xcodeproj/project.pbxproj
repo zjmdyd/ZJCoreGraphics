@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66EA5F551BC3C66D00D7C8C7 /* 251933285905256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66EA5F541BC3C66D00D7C8C7 /* 251933285905256.jpg */; settings = {ASSET_TAGS = (); }; };
+		66EA5F571BC3C67400D7C8C7 /* 251948306213713.png in Resources */ = {isa = PBXBuildFile; fileRef = 66EA5F561BC3C67400D7C8C7 /* 251948306213713.png */; settings = {ASSET_TAGS = (); }; };
 		66ED4B341B60CD2C00E18480 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED4B331B60CD2C00E18480 /* main.m */; };
 		66ED4B371B60CD2C00E18480 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED4B361B60CD2C00E18480 /* AppDelegate.m */; };
 		66ED4B3A1B60CD2C00E18480 /* ZJCoreGraphics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66ED4B381B60CD2C00E18480 /* ZJCoreGraphics.xcdatamodeld */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66EA5F541BC3C66D00D7C8C7 /* 251933285905256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 251933285905256.jpg; sourceTree = "<group>"; };
+		66EA5F561BC3C67400D7C8C7 /* 251948306213713.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 251948306213713.png; sourceTree = "<group>"; };
 		66ED4B2E1B60CD2C00E18480 /* ZJCoreGraphics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJCoreGraphics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66ED4B321B60CD2C00E18480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66ED4B331B60CD2C00E18480 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 		66F3396F1B9D6C1200C6BB1A /* 基础知识篇 */ = {
 			isa = PBXGroup;
 			children = (
+				66EA5F541BC3C66D00D7C8C7 /* 251933285905256.jpg */,
+				66EA5F561BC3C67400D7C8C7 /* 251948306213713.png */,
 				66ED4B5A1B60CD5100E18480 /* ZJCGAffineTransformViewController.h */,
 				66ED4B5B1B60CD5100E18480 /* ZJCGAffineTransformViewController.m */,
 			);
@@ -247,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ZJ;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = YunTu;
 				TargetAttributes = {
 					66ED4B2D1B60CD2C00E18480 = {
@@ -283,9 +289,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66EA5F571BC3C67400D7C8C7 /* 251948306213713.png in Resources */,
 				66ED4B401B60CD2C00E18480 /* Main.storyboard in Resources */,
 				66ED4B451B60CD2C00E18480 /* LaunchScreen.xib in Resources */,
 				66ED4B421B60CD2C00E18480 /* Images.xcassets in Resources */,
+				66EA5F551BC3C66D00D7C8C7 /* 251933285905256.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +385,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -443,6 +452,7 @@
 				INFOPLIST_FILE = ZJCoreGraphics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "YT.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -454,6 +464,7 @@
 				INFOPLIST_FILE = ZJCoreGraphics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "YT.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -472,6 +483,7 @@
 				);
 				INFOPLIST_FILE = ZJCoreGraphicsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "YT.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZJCoreGraphics.app/ZJCoreGraphics";
 			};
@@ -487,6 +499,7 @@
 				);
 				INFOPLIST_FILE = ZJCoreGraphicsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "YT.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZJCoreGraphics.app/ZJCoreGraphics";
 			};

@@ -83,15 +83,19 @@
     UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
     
     //把截的屏保存到相册
-    UIImageWriteToSavedPhotosAlbum(newImage , nil, nil, nil);
-    
-    //给个保存成功的反馈
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"存储照片成功"
-                                                    message:@"您已将照片存储于图片库中，打开照片程序即可查看。"
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    UIImageWriteToSavedPhotosAlbum(newImage , self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+//保存图片完成之后调用
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSString *mention;
+    if (error) {
+        mention = @"Error\n请在设置里面修改对相册的访问权限";
+    }else {
+        mention = @"图片已经保存到相册中";
+    }
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:mention delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -100,7 +104,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

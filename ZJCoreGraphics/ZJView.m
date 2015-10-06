@@ -18,6 +18,10 @@
     CGContextSaveGState(context);
     
     if (!self.isInit) {
+        // startAngle = -M_PI_2;
+        // endAngle = 0;
+        
+        // 淡蓝色环(一圈)
         UIBezierPath *path = [[UIBezierPath alloc]init];
         [path addArcWithCenter:self.centerPoint radius:(self.width-LineWidth)*0.5 startAngle:self.startAngle endAngle:M_PI*3/2 clockwise:YES];
         UIColor *color = [UIColor colorWithRed:0.5 green:0.74 blue:0.90 alpha:0.64];
@@ -26,6 +30,7 @@
         [path stroke];
         [path closePath];
         
+        // 1/4白环
         UIBezierPath *path2 = [[UIBezierPath alloc]init];
         [path2 addArcWithCenter:self.centerPoint radius:(self.width-LineWidth)*0.5 startAngle:self.startAngle endAngle:self.endAngle clockwise:YES];
         [[UIColor whiteColor] setStroke];
@@ -33,6 +38,7 @@
         [path2 stroke];
         [path2 closePath];
         
+        // 1/4扇形区域
         UIBezierPath *path3 = [UIBezierPath bezierPath];
         [path3 moveToPoint:self.centerPoint];
         [path3 addArcWithCenter:self.centerPoint radius:self.width*0.5-LineWidth startAngle:self.startAngle endAngle:self.endAngle clockwise:YES];
@@ -55,7 +61,10 @@
         }
 //        [self.bPath closePath];
     }
-    
+//    CGContextRotateCTM(context, M_PI/6);
+//    CGContextTranslateCTM(context, 100, 100);
+    NSLog(@"%@", NSStringFromCGAffineTransform(CGContextGetCTM(UIGraphicsGetCurrentContext())));
+
     CGContextRestoreGState(context);
 }
 
