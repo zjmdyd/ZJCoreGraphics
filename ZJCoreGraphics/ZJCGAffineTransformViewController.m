@@ -35,7 +35,7 @@
     /*
         CGAffineTransform使用方法:
      */
-#if 0
+#if 1
 #ifdef Method1
     //方法1:
     self.frontView.transform = CGAffineTransformMakeRotation(M_PI/6);   // 弧度数, pi/6 顺时针
@@ -44,12 +44,15 @@
     //方法2
     self.frontView.transform = CGAffineTransformRotate(self.frontView.transform, M_PI/6);
 #endif
-#endif
+#else
     // A point that specifies the x- and y-coordinates to transform.
     // Returns the point resulting from an affine transformation of an existing point.
     CGPointApplyAffineTransform(CGPointMake(0, 0), self.frontView.transform);   // CGPointApplyAffineTransform //把变化应用到一个点上
     
     CGRectApplyAffineTransform(CGRectMake(0, 0, 100, 100), CGAffineTransformMakeRotation(M_PI/3));
+    
+#endif
+    
     NSLog(@"%@", NSStringFromCGAffineTransform(self.frontView.transform));
     
 /*
@@ -81,7 +84,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

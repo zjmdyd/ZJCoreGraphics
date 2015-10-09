@@ -59,11 +59,8 @@
         if (self.isFill) {
             [self.bPath fill];
         }
-//        [self.bPath closePath];
     }
-//    CGContextRotateCTM(context, M_PI/6);
-//    CGContextTranslateCTM(context, 100, 100);
-    NSLog(@"%@", NSStringFromCGAffineTransform(CGContextGetCTM(UIGraphicsGetCurrentContext())));
+    
 
     CGContextRestoreGState(context);
 }

@@ -29,6 +29,7 @@
     _zjView.startAngle = -M_PI_2;
     _zjView.endAngle = 0;
     _zjView.backgroundColor = [UIColor lightGrayColor];
+    _zjView.layer.masksToBounds = YES;
     [self.view addSubview:_zjView];
     
     _btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 100, 120, 60)];

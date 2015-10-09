@@ -9,12 +9,13 @@
 #import "ViewController.h"
 
 #import "ZJCGAffineTransformViewController.h"
+#import "ZJCGContextViewController.h"
 
 #import "ZJBezierViewController.h"
 #import "ZJLoopLodingViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate> {
-    NSArray *_sectionTitles, *_titles;
+    NSArray *_sectionTitles, *_titles, *_vcs;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -36,9 +37,18 @@ static NSString *CELLID = @"cellID";
 - (void)initAry {
     _sectionTitles = @[@"基础知识篇", @"Demo篇"];
     
-    NSArray *s1 = @[@"CGAffineTransformMake"];
+    NSArray *s1 = @[@"CGAffineTransform", @"CGContext"];
     NSArray *s2 = @[@"LoopLoading", @"BezierPath", @"Write"];
     _titles = @[s1, s2];
+    
+    NSArray *s0VC = @[[ZJCGAffineTransformViewController new],
+                      [ZJCGContextViewController new]
+                      ];
+    NSArray *s1VC = @[[ZJLoopLodingViewController new],
+                      [ZJBezierViewController new],
+                      [self.storyboard instantiateViewControllerWithIdentifier:@"ZJWrite"]
+                     ];
+    _vcs = @[s0VC, s1VC];
 }
 
 #pragma mark - UITableViewDataSource
@@ -71,24 +81,7 @@ static NSString *CELLID = @"cellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSInteger row = indexPath.row;
-    UIViewController *vc;
-    
-    if (indexPath.section == 0) {
-        if (row == 0) {
-            vc = [[ZJCGAffineTransformViewController alloc] init];
-        }else if (row == 1) {
-            vc = [[ZJCGAffineTransformViewController alloc] init];
-        }
-    }else if (indexPath.section == 1){
-        if (row == 0) {
-            vc = [[ZJLoopLodingViewController alloc] init];
-        }else if (row == 1) {
-            vc = [[ZJBezierViewController alloc] init];
-        }else if (row == 2) {
-            vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ZJWrite"];
-        }
-    }
+    UIViewController *vc = _vcs[indexPath.section][indexPath.row];
     
     if (vc) {
         vc.view.backgroundColor = [UIColor whiteColor];
