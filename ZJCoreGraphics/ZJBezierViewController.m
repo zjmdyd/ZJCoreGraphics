@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     _zjView = [[ZJView alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
-    _zjView.centerPoint = CGPointMake(_zjView.left + _zjView.width*0.5, _zjView.height*0.5);
+    _zjView.centerPoint = CGPointMake(_zjView.width*0.5, _zjView.height*0.5);
     _zjView.startAngle = -M_PI_2;
     _zjView.endAngle = 0;
     _zjView.backgroundColor = [UIColor lightGrayColor];
